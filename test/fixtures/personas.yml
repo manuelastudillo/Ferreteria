@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
+  titulo: MyString
   descripcion: MyText
+  prioridad: 1
+  activo: false
 
 two:
-  title: MyString
+  titulo: MyString
   descripcion: MyText
+  prioridad: 1
+  activo: false
