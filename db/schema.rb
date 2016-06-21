@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616023631) do
+ActiveRecord::Schema.define(version: 20160621211303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20160616023631) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "categoria", force: :cascade do |t|
+    t.text     "nom_cat"
+    t.string   "abre_cat"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "personas", force: :cascade do |t|
     t.string   "titulo"
     t.text     "descripcion"
@@ -32,10 +39,38 @@ ActiveRecord::Schema.define(version: 20160616023631) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "personsas", force: :cascade do |t|
-    t.string   "nombre"
+  create_table "productos", force: :cascade do |t|
+    t.text     "nom_prod"
+    t.string   "abre_pro"
+    t.string   "marca"
+    t.text     "codigo_barras"
+    t.integer  "comision"
+    t.integer  "stock"
+    t.integer  "stockminimo"
+    t.integer  "precio_compra"
+    t.integer  "precio_venta"
+    t.integer  "descuento"
+    t.text     "descripcion"
+    t.integer  "proveedor_id"
+    t.integer  "categoria_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "proveedors", force: :cascade do |t|
+    t.text     "nom_prov"
+    t.string   "abre_prov"
+    t.text     "r_social"
+    t.text     "rut"
+    t.text     "domicilio"
+    t.integer  "fax"
+    t.integer  "telefono1"
+    t.integer  "telefono2"
+    t.text     "web"
+    t.text     "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "productos", "categoria", column: "categoria_id"
 end
