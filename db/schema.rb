@@ -11,32 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621211303) do
+ActiveRecord::Schema.define(version: 20160621233857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "articles", force: :cascade do |t|
-    t.string   "title"
-    t.text     "descripcion"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "categoria", force: :cascade do |t|
+  create_table "categorias", force: :cascade do |t|
     t.text     "nom_cat"
     t.string   "abre_cat"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "personas", force: :cascade do |t|
-    t.string   "titulo"
-    t.text     "descripcion"
-    t.integer  "prioridad"
-    t.boolean  "activo"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "productos", force: :cascade do |t|
@@ -57,7 +41,7 @@ ActiveRecord::Schema.define(version: 20160621211303) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "proveedors", force: :cascade do |t|
+  create_table "proveedores", force: :cascade do |t|
     t.text     "nom_prov"
     t.string   "abre_prov"
     t.text     "r_social"
@@ -72,5 +56,6 @@ ActiveRecord::Schema.define(version: 20160621211303) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "productos", "categoria", column: "categoria_id"
+  add_foreign_key "productos", "categorias"
+  add_foreign_key "productos", "proveedores", column: "proveedor_id"
 end
