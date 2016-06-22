@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
   resources :personas
+
+  get 'productos/', to: 'productos#index', as: 'productos'
+  get 'productos/nuevo', as: 'nuevo_producto'
+  post 'productos/', to: 'productos#crear'
+  get 'productos/:id/editar', to: 'productos#editar', as: 'editar_producto'
+  get 'productos/:id', to: 'productos#mostrar', as: 'producto'
+  put 'productos/:id',to: 'productos#update'
+  patch 'productos/:id' ,to: 'productos#update'
+  delete 'productos/:id', to: 'productos#elimina'
+
   get 'welcome/index'
 
   get 'home/index'
+
+
 
 
 
