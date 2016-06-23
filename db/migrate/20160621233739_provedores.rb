@@ -1,6 +1,6 @@
-class CreateProveedors < ActiveRecord::Migration
+class Provedores < ActiveRecord::Migration
   def change
-    create_table :proveedors do |t|
+    create_table :proveedores do |t|
 
       t.text :nom_prov
       t.string :abre_prov
