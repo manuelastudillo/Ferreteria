@@ -1,3 +1,3 @@
 class Proveedor < ActiveRecord::Base
-self.table_name = "provedores"
+	self.table_name = "proveedor"
 end

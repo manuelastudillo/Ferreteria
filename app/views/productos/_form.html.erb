@@ -15,62 +15,94 @@
           </div>
         <% end %>
 
+      <div class="form-group" style="margin-top: 10px;">
+        <%= f.label :nom_prod,"Nombre", :class =>"col-sm-2", :class =>"control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :nom_prod, placeholder: "Nombre Del Producto", :class => "form-control" %>
+     </div> 
+     </div> 
       <div class="form-group">
-        <%= f.label :nom_prod, "Nombre" %>
-        <%= f.text_field :nom_prod, :class => "form-control" %>
+        <%= f.label :abre_pro ,"Nombre Abreviado", :class =>"col-sm-2", :class =>"control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :abre_pro,  placeholder: "Nombre Abreviado",:class => "form-control" %>
+      </div>
       </div>
       <div class="form-group">
-        <%= f.label :abre_pro %>
-        <%= f.text_field :abre_pro, :class => "form-control" %>
+        <%= f.label :marca, "Marca", :class => "col-sm-2", :class => "control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :marca, placeholder:"Marca del Producto", :class => "form-control" %>
       </div>
-      <div class="form-group">
-        <%= f.label :marca %>
-        <%= f.text_field :marca, :class => "form-control" %>
       </div>
-      <div class="form-group">
+      <!--<div class="form-group">
         <%= f.label :codigo_barras, "codigo de barra" %>
         <%= f.text_field :codigo_barras , :class => "form-control"%>
       </div>
+       -->      
       <div class="form-group">
-        <%= f.label :comision %>
-        <%= f.text_field :comision, :class => "form-control" %>
+        <%= f.label :comision,"Comisión ", :class => "control-label"%>
+        <div class="col-sm-10">
+        <%= f.text_field :comision, placeholder:"Comision Del Producto", :class => "form-control" %>
+      </div>
       </div>
       <div class="form-group">
-        <%= f.label :stock %>
-        <%= f.text_field :stock , :class => "form-control"%>
+        <%= f.label :stock,"Stock ", :class => "control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :stock , placeholder:"Stock Del Producto",:class => "form-control"%>
+      </div>
       </div>
       <div class="form-group">
-        <%= f.label :stockminimo %>
-        <%= f.text_field :stockminimo , :class => "form-control"%>
+        <%= f.label :stockminimo ,"Stock Minimo",:class => "control-label"%>
+                <div class="col-sm-10">
+        <%= f.text_field :stockminimo ,placeholder:"Stock Minimo Del Producto", :class => "form-control"%>
+      </div>
       </div>
       <div class="form-group">
-        <%= f.label :precio_compra %>
-        <%= f.text_field :precio_compra , :class => "form-control"%>
+        <%= f.label :precio_compram, "Precio de compra",:class => "control-label" %>
+                <div class="col-sm-10">
+      <%= f.text_field :precio_compra , placeholder:"Precio De Compra del producto",:class => "form-control"%>
       </div>
-      <div class="form-group">
-        <%= f.label :precio_venta %>
-        <%= f.text_field :precio_venta , :class => "form-control"%>
       </div>
+
       <div class="form-group">
-        <%= f.label :descuento %>
-        <%= f.text_field :descuento , :class => "form-control"%>
+        <%= f.label :precio_venta,"Precio De Venta",:class => "control-label" %>
+            <div class="col-sm-10">
+        <%= f.text_field :precio_venta ,placeholder:"Precio De Venta Del Producto", :class => "form-control"%>
       </div>
-      <div class="form-group">
-        <%= f.label :descripcion %>
-        <%= f.text_field :descripcion , :class => "form-control"%>
       </div>
+
+      <!--<div class="form-group">
+        <%= f.label :descuento, "Descuento", :class => "control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :descuento ,placeholder:"Descuento que se le ase", :class => "form-control"%>
+      </div>
+      </div>
+        -->
       <div class="form-group">
-        <%= f.label :stock %>
-        <%= f.text_field :stock , :class => "form-control"%>
+        <%= f.label :descripcion, "Descripcion",:class => "control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :descripcion ,placeholder:"Descripcion Del Producto", :class => "form-control"%>
+      </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :stock, "Stock Del Producto",:class => "control-label"  %>
+        <div class="col-sm-10">
+        <%= f.text_field :stock ,placeholder:"Stock Del Producto", :class => "form-control"%>
+      </div>
       </div>
 
       <div class="form-group">
         <%= f.label :proveedor_id %>
-        <%= f.text_field :proveedor_id , :class => "form-control"%>
+        <div class="col-sm-10">
+        <%= f.text_field :proveedor_id ,placeholder:"Comision Del Producto", :class => "form-control"%>
       </div>
+      </div>
+
       <div class="form-group">
         <%= f.label :categoria_id %>
-        <%= f.text_field :categoria_id , :class => "form-control"%>
+        <div class="col-sm-10">
+        <%= f.text_field :categoria_id ,placeholder:"Comision Del Producto", :class => "form-control"%>
+      </div>
       </div>
 
       <div class="form-group">

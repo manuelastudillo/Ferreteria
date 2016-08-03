@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+.label {
+  border-radius: 0.05em ;
+}.label {
+  border-radius: 0.05em;
+  color:red;
+}

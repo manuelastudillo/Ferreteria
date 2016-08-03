@@ -52,6 +52,6 @@ class CategoriasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def categoria_params
-      params.require(:categoria).permit(:nom_prod,:abre_pro, :marca, :codigo_barras,:comision,:stock,:stockminimo, :precio_compra,:precio_venta,:descuento,:descripcion,:proveedor_id,:categoria_id)
+      params.require(:categoria).permit(:nom_cat,:abre_cat)
     end
 end

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
+
+
   get 'categorias/', to: 'categorias#index', as: 'categorias'
   get 'categorias/nuevo', as: 'nuevo_categoria'
   post 'categorias/', to: 'categorias#crear'
@@ -43,7 +46,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'proveedors#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

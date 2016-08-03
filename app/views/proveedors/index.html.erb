@@ -1,9 +1,31 @@
 <% content_for :content_header  do %>
-  <section class="content-header">
-    <h1>Proveedors <small>#index</small></h1>
-  </section>
+    <section class="content-header">
+      <h1>Proveedores</h1>
+      <span class="tn btn-success btn-lg bt pull-right glyphicon glyphicon-plus"><%= link_to 'Crear proveedor',nuevo_proveedor_path %></span>
+
+    </section>
 <% end %>
 
 <section class="content invoice">
-  <p>Find me in app/views/proveedors/index.html.erb</p>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Mostrar</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @provedors.each do |provedores|%>
+        <tr>
+          <td><%= proveedor.nombre%> </td>
+          <td><span class="glyphicon glyphicon-play" aria-hidden="true" ></span><%= link_to 'Mostrar', proveedor %> </td>
+          <td><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><%= link_to 'Editar',editar_proveedor_path(proveedor) %></td>
+          <td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span><%= link_to'Eliminar',proveedor , method: :delete, data: {confirm: 'Esta seguro?'} %> </td>
+        </tr>
+    <%end%>
+    </tbody>
+  </table>
+  <%= will_paginate @proveedors, renderer: BootstrapPagination::Rails %>
 </section>
