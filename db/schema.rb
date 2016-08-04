@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804001927) do
+ActiveRecord::Schema.define(version: 20160804040749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20160804001927) do
     t.string   "desc_cat"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comunas", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "provincia_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "productos", force: :cascade do |t|
@@ -59,6 +66,23 @@ ActiveRecord::Schema.define(version: 20160804001927) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "provincias", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "codigo"
+    t.integer  "numero"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "comunas", "provincias"
   add_foreign_key "productos", "categorias"
   add_foreign_key "productos", "proveedors"
+  add_foreign_key "provincias", "regions"
 end

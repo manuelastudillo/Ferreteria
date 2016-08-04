@@ -1,9 +1,26 @@
 <% content_for :content_header  do %>
-  <section class="content-header">
-    <h1>Proveedors <small>#mostrar</small></h1>
-  </section>
+    <section class="content-header">
+      <h1>Proveedors</h1>
+
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to "Clientes", proveedors_path %></li>
+        <li class="active">Mostrar</li>
+      </ol>
+    </section>
 <% end %>
 
 <section class="content invoice">
-  <p>Find me in app/views/proveedors/mostrar.html.erb</p>
+
+  <p>
+    <strong>Nombre</strong>
+    <%= @proveedor.nom_prov %>
+  </p>
+  <p>
+    <strong> Descripcion</strong>
+    <%= @proveedor.desc_prov %>
+  </p>
+
+  <%= link_to 'Editar', editar_proveedors_url,:class =>"btn btn-success" %>
+  <%= link_to 'Atras', proveedors_url,:class =>"btn btn-info" %>
 </section>
