@@ -1,6 +1,7 @@
-class Productos < ActiveRecord::Migration
+class CreateProductos < ActiveRecord::Migration
   def change
     create_table :productos do |t|
+    	
       t.text :nom_prod
       t.string :abre_pro
       t.string :marca

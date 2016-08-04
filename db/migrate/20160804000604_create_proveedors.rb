@@ -1,6 +1,6 @@
-class Provedors < ActiveRecord::Migration
+class CreateProveedors < ActiveRecord::Migration
   def change
-    create_table :provedors do |t|
+    create_table :proveedors do |t|
 
       t.text :nom_prov
       t.string :abre_prov
@@ -12,8 +12,7 @@ class Provedors < ActiveRecord::Migration
       t.integer :telefono2
       t.text :web
       t.text :email
-      t.text :email
-
+      t.text :desc_prov
       t.timestamps null: false
     end
   end
