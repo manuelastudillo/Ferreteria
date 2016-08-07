@@ -5,6 +5,6 @@ class CreateProvincia < ActiveRecord::Migration
       t.integer :region_id
 
       t.timestamps null: false
-end
+    end
   end
 end

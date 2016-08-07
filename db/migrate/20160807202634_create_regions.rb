@@ -1,8 +1,9 @@
 class CreateRegions < ActiveRecord::Migration
   def change
-    create_table :regions do |t|
+ create_table :regiones do |t|
 
       t.string :nombre
+       t.string :corfo
       t.string :codigo
       t.integer :numero
 

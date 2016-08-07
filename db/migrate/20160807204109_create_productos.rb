@@ -15,7 +15,7 @@ class CreateProductos < ActiveRecord::Migration
       t.text :descripcion
       t.integer :proveedor_id
       t.integer :categoria_id
-
+      t.integer :comuna_id
       t.timestamps null: false
     end
   end

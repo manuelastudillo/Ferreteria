@@ -1,4 +1,2 @@
-class Categoria< ActiveRecord::Base
-
-self.table_name = "categorias"
+class Categoria < ActiveRecord::Base
 end

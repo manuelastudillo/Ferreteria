@@ -4,6 +4,7 @@ class CreateProveedors < ActiveRecord::Migration
 
       t.text :nom_prov
       t.string :abre_prov
+      t.integer :comuna_id
       t.text :r_social
       t.text :rut
       t.text :domicilio

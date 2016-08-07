@@ -25,6 +25,8 @@ class ProveedorsController < ApplicationController
   end
 
   def mostrar
+       /@proveedor = Proveedor.find(params[:id])
+  /
   end
 
   def update

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804040749) do
+ActiveRecord::Schema.define(version: 20160807204244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160804040749) do
     t.text     "descripcion"
     t.integer  "proveedor_id"
     t.integer  "categoria_id"
+    t.integer  "comuna_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160804040749) do
   create_table "proveedors", force: :cascade do |t|
     t.text     "nom_prov"
     t.string   "abre_prov"
+    t.integer  "comuna_id"
     t.text     "r_social"
     t.text     "rut"
     t.text     "domicilio"
@@ -73,8 +75,9 @@ ActiveRecord::Schema.define(version: 20160804040749) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "regions", force: :cascade do |t|
+  create_table "regiones", force: :cascade do |t|
     t.string   "nombre"
+    t.string   "corfo"
     t.string   "codigo"
     t.integer  "numero"
     t.datetime "created_at", null: false
@@ -83,6 +86,8 @@ ActiveRecord::Schema.define(version: 20160804040749) do
 
   add_foreign_key "comunas", "provincias"
   add_foreign_key "productos", "categorias"
+  add_foreign_key "productos", "comunas"
   add_foreign_key "productos", "proveedors"
-  add_foreign_key "provincias", "regions"
+  add_foreign_key "proveedors", "comunas"
+  add_foreign_key "provincias", "regiones", column: "region_id"
 end
