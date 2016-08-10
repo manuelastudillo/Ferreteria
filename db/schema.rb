@@ -88,6 +88,5 @@ ActiveRecord::Schema.define(version: 20160807204244) do
   add_foreign_key "productos", "categorias"
   add_foreign_key "productos", "comunas"
   add_foreign_key "productos", "proveedors"
-  add_foreign_key "proveedors", "comunas"
   add_foreign_key "provincias", "regiones", column: "region_id"
 end
