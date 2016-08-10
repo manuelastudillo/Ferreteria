@@ -18,19 +18,20 @@
       <div class="form-group" style="margin-top: 10px;">
         <%= f.label :nom_prov,"Nombre", :class =>"col-sm-2", :class =>"control-label" %>
         <div class="col-sm-10">
-        <%= f.text_field :nom_prov, placeholder: "Nombre Del Proveedor", :class => "form-control" %>
+        <%= f.text_field :nom_prov, placeholder: "Ingrese Nombre Del Proveedor", :class => "form-control" %>
      </div> 
      </div> 
       <div class="form-group">
         <%= f.label :abre_pro ,"Nombre Abreviado", :class =>"col-sm-2", :class =>"control-label" %>
         <div class="col-sm-10">
-        <%= f.text_field :abre_prov,  placeholder: "Nombre Abreviado",:class => "form-control" %>
+        <%= f.text_field :abre_prov,  placeholder: "Ingrese Nombre Abreviado Del Proveedor",:class => "form-control" %>
       </div>
       </div>
+      
       <div class="form-group">
         <%= f.label :r_social, "Razón", :class => "col-sm-2", :class => "control-label" %>
       <div class="col-sm-10">
-        <%= f.text_field :r_social, placeholder:"Razón Social", :class => "form-control" %>
+        <%= f.text_field :r_social, placeholder:"Ingrese Razón Social", :class => "form-control" %>
       </div>
       </div>
      
@@ -40,18 +41,30 @@
         <%= f.text_field :rut, placeholder:"Rut", :class => "form-control" %>
       </div>
       </div>
-      <div class="form-group">
+
+  
+
+      <div class="form-group" >
         <%= f.label :domicilio,"Domicilio ", :class => "control-label" %>
         <div class="col-sm-10">
         <%= f.text_field :domicilio , placeholder:"Domicilio Del proveedor",:class => "form-control"%>
       </div>
       </div>
-      <div class="form-group">
+
+      <div class="field">
+        <%= f.label :comuna %>
+        <div class="col-sm-10">
+        <%= f.select('comuna_id', Comuna.all.collect{|c| [c.nombre, c.id]}, class: 'chosen-select')%>
+      </div>
+      </div>
+
+      <div class="form-group espacio">
         <%= f.label :fax ,"fax",:class => "control-label"%>
                 <div class="col-sm-10">
         <%= f.text_field :fax ,placeholder:"Fax Del Domicilio", :class => "form-control"%>
       </div>
       </div>
+
       <div class="form-group">
         <%= f.label :telefono1, "Teléfono",:class => "control-label" %>
                 <div class="col-sm-10">
@@ -85,13 +98,13 @@
       <div class="form-group">
         <%= f.label :desc_prov, "Descripción",:class => "control-label"  %>
         <div class="col-sm-10">
-        <%= f.text_field :desc_prov ,placeholder:"Descripción Del proveedor", :class => "form-control"%>
+        <%= f.text_area :desc_prov ,placeholder:"Descripción Del proveedor", :class => "form-control"%>
       </div>
       </div>
 
 
 
-      <div class="form-group">
+      <div class="form-group botones2">
         <%= f.submit :class => "btn btn-primary" %>
       </div>
     <% end %>

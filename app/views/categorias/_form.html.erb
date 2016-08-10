@@ -1,7 +1,7 @@
 <section class="content invoice">
   <div class="row">
     <div class="col-md-10">
-      <%= form_for(@categoria, :html => { :role => "form" }) do |f| %>
+      <%= form_for @categoria, url: categorias_path, html: { method: :post } do |f| %>
         <% if @categoria.errors.any? %>
           <div class="alert alert-danger alert-dismissable" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
@@ -18,96 +18,38 @@
       <div class="form-group" style="margin-top: 10px;">
         <%= f.label :nom_cat,"Nombre", :class =>"col-sm-2", :class =>"control-label" %>
         <div class="col-sm-10">
-        <%= f.text_field :nom_cat, placeholder: "Nombre Del Producto", :class => "form-control" %>
-     </div> 
-     </div> 
+        <%= f.text_field :nom_cat, placeholder: "Ingrese Nombre De La Categoria", :class => "form-control" %>
+     </div>
+     </div>
       <div class="form-group">
         <%= f.label :abre_cat ,"Nombre Abreviado", :class =>"col-sm-2", :class =>"control-label" %>
         <div class="col-sm-10">
-        <%= f.text_field :abre_cat,  placeholder: "Nombre Abreviado",:class => "form-control" %>
+        <%= f.text_field :abre_cat,  placeholder: "Ingrese Nombre Abrebiado De Categoria",:class => "form-control" %>
+      </div>
+
+      </div>
+        <div class="form-group">
+        <%= f.label :esta_cat ,"Estado ", :class =>"col-sm-2", :class =>"control-label" %>
+         <div class="col-sm-10">
+        <%= f.check_box :esta_cat ,checked:"checked",:class => "form-control" %>
       </div>
       </div>
-      <!--<div class="form-group">
-        <%= f.label :marca, "Marca", :class => "col-sm-2", :class => "control-label" %>
-      <div class="col-sm-10">
-        <%= f.text_field :marca, placeholder:"Marca del Producto", :class => "form-control" %>
-      </div>
-      </div>
+  
      <div class="form-group">
-        <%= f.label :codigo_barras, "codigo de barra" %>
-        <%= f.text_field :codigo_barras , :class => "form-control"%>
-      </div>
-         
-      <div class="form-group">
-        <%= f.label :comision,"Comisión ", :class => "control-label"%>
+        <%= f.label :desc_cat ,"Descrición", :class =>"col-sm-2" , :class =>"control-label" %>
         <div class="col-sm-10">
-        <%= f.text_field :comision, placeholder:"Comision Del Producto", :class => "form-control" %>
+    
+        <%= f.text_area :desc_cat,  placeholder: "Ingrese Descripción De Categoria",:class => "form-control" %>
       </div>
       </div>
-      <div class="form-group">
-        <%= f.label :stock,"Stock ", :class => "control-label" %>
-        <div class="col-sm-10">
-        <%= f.text_field :stock , placeholder:"Stock Del Producto",:class => "form-control"%>
-      </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :stockminimo ,"Stock Minimo",:class => "control-label"%>
-                <div class="col-sm-10">
-        <%= f.text_field :stockminimo ,placeholder:"Stock Minimo Del Producto", :class => "form-control"%>
-      </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :precio_compram, "Precio de compra",:class => "control-label" %>
-                <div class="col-sm-10">
-      <%= f.text_field :precio_compra , placeholder:"Precio De Compra del producto",:class => "form-control"%>
-      </div>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :precio_venta,"Precio De Venta",:class => "control-label" %>
-            <div class="col-sm-10">
-        <%= f.text_field :precio_venta ,placeholder:"Precio De Venta Del Producto", :class => "form-control"%>
-      </div>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :descuento, "Descuento", :class => "control-label" %>
-        <div class="col-sm-10">
-        <%= f.text_field :descuento ,placeholder:"Descuento que se le ase", :class => "form-control"%>
-      </div>
-      </div>
-        
-      <div class="form-group">
-        <%= f.label :descripcion, "Descripcion",:class => "control-label" %>
-        <div class="col-sm-10">
-        <%= f.text_field :descripcion ,placeholder:"Descripcion Del Producto", :class => "form-control"%>
-      </div>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :stock, "Stock Del Producto",:class => "control-label"  %>
-        <div class="col-sm-10">
-        <%= f.text_field :stock ,placeholder:"Stock Del Producto", :class => "form-control"%>
-      </div>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :proveedor_id %>
-        <div class="col-sm-10">
-        <%= f.text_field :proveedor_id ,placeholder:"Comision Del Producto", :class => "form-control"%>
-      </div>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :categoria_id %>
-        <div class="col-sm-10">
-        <%= f.text_field :categoria_id ,placeholder:"Comision Del Producto", :class => "form-control"%>
-      </div>
-      </div>-->
-
+     
+ 
+        <div class="col-sm-10 botones";>
       <div class="form-group">
         <%= f.submit :class => "btn btn-primary" %>
       </div>
+            </div>
+
     <% end %>
     </div>
   </div>

@@ -19892,7 +19892,10 @@ i.glyphicon-sort {
 
 
  */
-
+.botones{
+  text-align: center;
+padding-top: 10px;
+}
 
 .label {
   border-radius: 0.05em ;

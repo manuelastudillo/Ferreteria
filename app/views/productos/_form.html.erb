@@ -51,13 +51,13 @@
       </div>
       </div>
       <div class="form-group">
-        <%= f.label :stockminimo ,"Stock Minimo",:class => "control-label"%>
+        <%= f.label :stockminimo,"Stock Minimo",:class => "control-label"%>
                 <div class="col-sm-10">
         <%= f.text_field :stockminimo ,placeholder:"Stock Minimo Del Producto", :class => "form-control"%>
       </div>
       </div>
       <div class="form-group">
-        <%= f.label :precio_compram, "Precio de compra",:class => "control-label" %>
+        <%= f.label :precio_compra, "Precio de compra",:class => "control-label" %>
                 <div class="col-sm-10">
       <%= f.text_field :precio_compra , placeholder:"Precio De Compra del producto",:class => "form-control"%>
       </div>
@@ -70,6 +70,13 @@
       </div>
       </div>
 
+     <div class="field">
+        <%= f.label :categoria %>
+        <div class="col-sm-10">
+        <%= f.select('categoria_id', Categoria.all.collect{|c| [c.nom_cat, c.id]}, class: 'chosen-select')%>
+      </div>
+      </div>
+
       <!--<div class="form-group">
         <%= f.label :descuento, "Descuento", :class => "control-label" %>
         <div class="col-sm-10">
@@ -77,35 +84,35 @@
       </div>
       </div>
         -->
-      <div class="form-group">
-        <%= f.label :descripcion, "Descripcion",:class => "control-label" %>
-        <div class="col-sm-10">
-        <%= f.text_field :descripcion ,placeholder:"Descripcion Del Producto", :class => "form-control"%>
-      </div>
-      </div>
 
-      <div class="form-group">
+
+      <div class="form-group espacio">
         <%= f.label :stock, "Stock Del Producto",:class => "control-label"  %>
         <div class="col-sm-10">
         <%= f.text_field :stock ,placeholder:"Stock Del Producto", :class => "form-control"%>
       </div>
       </div>
 
-      <div class="form-group">
-        <%= f.label :proveedor_id %>
+   
+
+        <div class="field">
+        <%= f.label :Proveedor %>
         <div class="col-sm-10">
-        <%= f.text_field :proveedor_id ,placeholder:"Comision Del Producto", :class => "form-control"%>
+        <%= f.select('proveedor_id', Proveedor.all.collect{|p| [p.nom_prov, p.id]}, class: 'chosen-select')%>
       </div>
       </div>
 
-      <div class="form-group">
-        <%= f.label :categoria_id %>
+       
+
+       <div class="form-group espacio">
+        <%= f.label :descripcion ,"Descrición", :class =>"col-sm-2" , :class =>"control-label" %>
         <div class="col-sm-10">
-        <%= f.text_field :categoria_id ,placeholder:"Comision Del Producto", :class => "form-control"%>
+    
+        <%= f.text_area :descripcion,  placeholder: "Ingrese Descripción Del Producto",:class => "form-control" %>
       </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group botones2">
         <%= f.submit :class => "btn btn-primary" %>
       </div>
     <% end %>

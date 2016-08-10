@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'categorias/:id', to: 'categorias#mostrar', as: 'categoria'
   put 'categorias/:id',to: 'categorias#update'
   patch 'categorias/:id' ,to: 'categorias#update'
-  delete 'categorias/:id', to: 'categorias#elimina'
+  delete 'categorias/:id', to: 'categorias#eliminar'
 
 
 

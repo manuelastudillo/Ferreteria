@@ -1,0 +1,75 @@
+<% content_for :content_header  do %>
+    <section class="content-header">
+      <h1>Producto</h1>
+
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to "Clientes", productos_path %></li>
+        <li class="active">Mostrar</li>
+      </ol>
+    </section>
+<% end %>
+
+<section class="content invoice botones">
+
+  <p>
+    <strong>Nombre</strong>
+    <%= @producto.nom_prod %>
+  </p>
+  <p>
+    <strong> Abreviacion De producto</strong>
+    <%= @producto.abre_pro %>
+  </p>
+    <p>
+    <strong> Razon Social</strong>
+    <%= @producto.marca %>
+  </p>
+
+
+  <p>
+    <strong> Rut producto</strong>
+    <%= @producto.comision %>
+  </p>
+
+  <p>
+    <strong> Domicilio</strong>
+    <%= @producto.stock %>
+  </p>
+
+  <p>
+    <strong> Comuna</strong>
+    <%= @producto.stockminimo %>
+  </p>
+
+  <p>
+    <strong> Fax</strong>
+    <%= @producto.precio_compra %>
+  </p>
+
+  <p>
+    <strong> Email</strong>
+    <%= @producto.precio_venta %>
+  </p>
+  
+    <p>
+    <strong> Comuna</strong>
+    <%= @producto.categoria_id %>
+  </p>
+
+    <p>
+    <strong> Comuna</strong>
+    <%= @producto.proveedor_id %>
+  </p>
+
+  <p>
+    <strong> Telefono</strong>
+    <%= @producto.descripcion %>
+  </p>
+  
+
+
+
+
+  <%= link_to 'Editar', editar_producto_url,:class =>"btn btn-success" %>
+  <%= link_to 'Atras', productos_url,:class =>"btn btn-info" %>
+</section>
