@@ -14,11 +14,9 @@ class CategoriasController < ApplicationController
     @categoria = Categoria.new(categoria_params)
     respond_to do |format|
       if @categoria.save
-<<<<<<< HEAD
+
    format.html{redirect_to categoria_url(@categoria), notice:  'categoria Guardado Con Exito'}
-=======
-        format.html{redirect_to categoria_url(@categoria), notice:  'categoria Guardado Con Exito'}
->>>>>>> c1ee609f7989b7783db33ada62e785872c8afa01
+
       else
         format.html{render :new}
       end
