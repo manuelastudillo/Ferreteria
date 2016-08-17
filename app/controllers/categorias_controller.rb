@@ -18,7 +18,7 @@ class CategoriasController < ApplicationController
    format.html{redirect_to categoria_url(@categoria), notice:  'categoria Guardado Con Exito'}
 
       else
-        format.html{render :new}
+        format.html{render :nuevo}
       end
     end
   end
