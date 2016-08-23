@@ -23,5 +23,13 @@ en:
   hello: "Hello world"
   activerecord:
     attributes:
-      categoria:
-        abre_cat: "E-mail address"
+     categoria:
+       nom_cat:  "Nombre de la categoria"
+            
+
+  activerecord:
+    attributes:
+     categoria:
+      abre_cat:  "Abreviacion de la categoria"
+   #   esta_cat:  "Estado de la categoria"
+    #  desc_cat:  "Descripcion de la categoria"

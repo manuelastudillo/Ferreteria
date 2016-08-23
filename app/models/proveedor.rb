@@ -1,3 +1,3 @@
 class Proveedor < ActiveRecord::Base
-	has_many :comuna
+	belongs_to :comuna
 end

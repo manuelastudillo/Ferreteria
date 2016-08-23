@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
 
 
+  devise_for :usuarios
   devise_for :admins
   get 'categorias/', to: 'categorias#index', as: 'categorias'
   get 'categorias/nuevo', as: 'nuevo_categoria'
