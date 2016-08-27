@@ -27,9 +27,7 @@ en:
        nom_cat:  "Nombre de la categoria"
             
 
-  activerecord:
-    attributes:
-     categoria:
-      abre_cat:  "Abreviacion de la categoria"
+ 
+  #     abre_cat:  "Abreviacion de la categoria"
    #   esta_cat:  "Estado de la categoria"
     #  desc_cat:  "Descripcion de la categoria"

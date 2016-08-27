@@ -2,9 +2,8 @@ class CreateProductos < ActiveRecord::Migration
   def change
     create_table :productos do |t|
     	
-      t.text :nom_prod
-      t.string :abre_pro
-      t.string :marca
+      t.text :nombre
+      t.string :abreviacion
       t.text :codigo_barras
       t.integer :comision
       t.integer :stock
@@ -15,7 +14,7 @@ class CreateProductos < ActiveRecord::Migration
       t.text :descripcion
       t.integer :proveedor_id
       t.integer :categoria_id
-      t.integer :comuna_id
+      t.integer :marca_id
       t.timestamps null: false
     end
   end
