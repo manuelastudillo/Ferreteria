@@ -1,6 +1,6 @@
-class AddDeviseToUsuarios < ActiveRecord::Migration
+class DeviseToUsuarios < ActiveRecord::Migration
   def self.up
-    change_table :usuarios do |t|
+    create_table :usuarios do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -19,7 +19,7 @@ class AddDeviseToUsuarios < ActiveRecord::Migration
       t.inet     :current_sign_in_ip
       t.inet     :last_sign_in_ip
       t.string   :nombre
-      t.text     :calle
+      t.string     :calle
       t.integer  :telefono
       t.integer  :telefono1
       t.integer  :rol_id
