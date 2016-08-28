@@ -54,6 +54,6 @@ class ProveedorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proveedor_params
-      params.require(:proveedor).permit(:nom_prov,:abre_prov,:r_social,:rut,:domicilio,:fax,:telefono1,:telefono2,:web,:email,:desc_prov, :comuna_id)
+      params.require(:proveedor).permit(:nombre,:abreviacion,:razon_social,:rut,:domicilio,:fax,:telefono1,:telefono2,:web,:email,:descripcion, :comuna_id)
     end
 end

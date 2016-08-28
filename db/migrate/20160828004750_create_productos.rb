@@ -12,6 +12,7 @@ class CreateProductos < ActiveRecord::Migration
       t.integer :precio_venta
       t.integer :descuento
       t.text :descripcion
+      t.string :foto
       t.integer :proveedor_id
       t.integer :categoria_id
       t.integer :marca_id

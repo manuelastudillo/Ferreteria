@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160827165826) do
+ActiveRecord::Schema.define(version: 20160828010526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160827165826) do
     t.integer  "precio_venta"
     t.integer  "descuento"
     t.text     "descripcion"
+    t.string   "foto"
     t.integer  "proveedor_id"
     t.integer  "categoria_id"
     t.integer  "marca_id"
@@ -127,4 +128,6 @@ ActiveRecord::Schema.define(version: 20160827165826) do
   add_foreign_key "productos", "proveedors"
   add_foreign_key "proveedors", "comunas"
   add_foreign_key "provincias", "regiones", column: "region_id"
+  add_foreign_key "usuarios", "comunas"
+  add_foreign_key "usuarios", "roles", column: "rol_id"
 end

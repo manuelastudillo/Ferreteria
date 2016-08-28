@@ -3,12 +3,6 @@ Rails.application.routes.draw do
 
 
 
-
-
-
-
-
-
   devise_for :usuarios
 
 
@@ -21,6 +15,14 @@ Rails.application.routes.draw do
   patch 'categorias/:id' ,to: 'categorias#update'
   delete 'categorias/:id', to: 'categorias#eliminar'
 
+  get 'marcas/', to: 'marcas#index', as: 'marcas'
+  get 'marcas/nuevo', as: 'nuevo_marca'
+  post 'marcas/', to: 'marcas#crear'
+  get 'marcas/:id/editar', to: 'marcas#editar', as: 'editar_marca'
+  get 'marcas/:id', to: 'marcas#mostrar', as: 'marca'
+  put 'marcas/:id',to: 'marcas#update'
+  patch 'marcas/:id' ,to: 'marcas#update'
+  delete 'marcas/:id', to: 'marcas#eliminar'
 
 
   get 'proveedors/', to: 'proveedors#index', as: 'proveedors'

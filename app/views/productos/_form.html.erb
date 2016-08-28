@@ -16,24 +16,20 @@
         <% end %>
 
       <div class="form-group" style="margin-top: 10px;">
-        <%= f.label :nom_prod,"Nombre", :class =>"col-sm-2", :class =>"control-label" %>
+        <%= f.label :nombre,"Nombre", :class =>"col-sm-2", :class =>"control-label" %>
         <div class="col-sm-10">
-        <%= f.text_field :nom_prod, placeholder: "Nombre Del Producto", :class => "form-control" %>
+        <%= f.text_field :nombre, placeholder: "Nombre Del Producto", :class => "form-control" %>
      </div> 
      </div> 
       <div class="form-group">
-        <%= f.label :abre_pro ,"Nombre Abreviado", :class =>"col-sm-2", :class =>"control-label" %>
+        <%= f.label :abreviacion ,"Nombre Abreviado", :class =>"col-sm-2", :class =>"control-label" %>
         <div class="col-sm-10">
-        <%= f.text_field :abre_pro,  placeholder: "Nombre Abreviado",:class => "form-control" %>
+        <%= f.text_field :abreviacion,  placeholder: "Nombre Abreviado",:class => "form-control" %>
       </div>
       </div>
+ 
+         <!--
       <div class="form-group">
-        <%= f.label :marca, "Marca", :class => "col-sm-2", :class => "control-label" %>
-      <div class="col-sm-10">
-        <%= f.text_field :marca, placeholder:"Marca del Producto", :class => "form-control" %>
-      </div>
-      </div>
-      <!--<div class="form-group">
         <%= f.label :codigo_barras, "codigo de barra" %>
         <%= f.text_field :codigo_barras , :class => "form-control"%>
       </div>
@@ -73,7 +69,7 @@
      <div class="field">
         <%= f.label :categoria %>
         <div class="col-sm-10">
-        <%= f.select('categoria_id', Categoria.all.collect{|c| [c.nom_cat, c.id]}, class: 'chosen-select')%>
+        <%= f.select('categoria_id', Categoria.all.collect{|c| [c.nombre, c.id]}, class: 'chosen-select')%>
       </div>
       </div>
 
@@ -93,12 +89,18 @@
       </div>
       </div>
 
+     <div class="field">
+        <%= f.label :Marca %>
+        <div class="col-sm-10">
+        <%= f.select('marca_id', Marca.all.collect{|m| [m.nombre, m.id]}, class: 'chosen-select')%>
+      </div>
+      </div>
    
 
         <div class="field">
         <%= f.label :Proveedor %>
         <div class="col-sm-10">
-        <%= f.select('proveedor_id', Proveedor.all.collect{|p| [p.nom_prov, p.id]}, class: 'chosen-select')%>
+        <%= f.select('proveedor_id', Proveedor.all.collect{|p| [p.nombre, p.id]}, class: 'chosen-select')%>
       </div>
       </div>
 

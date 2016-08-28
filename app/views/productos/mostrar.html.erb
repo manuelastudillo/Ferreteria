@@ -14,55 +14,60 @@
 
   <p>
     <strong>Nombre</strong>
-    <%= @producto.nom_prod %>
+    <%= @producto.nombre %>
   </p>
   <p>
-    <strong> Abreviacion De producto</strong>
-    <%= @producto.abre_pro %>
+    <strong> Abreviacion</strong>
+    <%= @producto.abreviacion %>
   </p>
     <p>
-    <strong> Razon Social</strong>
-    <%= @producto.marca %>
-  </p>
-
-
-  <p>
-    <strong> Rut producto</strong>
+    <strong> Comision</strong>
     <%= @producto.comision %>
   </p>
 
+
   <p>
-    <strong> Domicilio</strong>
+    <strong> Stock</strong>
     <%= @producto.stock %>
   </p>
 
   <p>
-    <strong> Comuna</strong>
+    <strong> Stock Minimo</strong>
     <%= @producto.stockminimo %>
   </p>
 
   <p>
-    <strong> Fax</strong>
+    <strong> Precio Compra</strong>
     <%= @producto.precio_compra %>
   </p>
 
   <p>
-    <strong> Email</strong>
+    <strong> Precio Venta</strong>
     <%= @producto.precio_venta %>
-  </p>
-  
-    <p>
-    <strong> Comuna</strong>
-    <%= @producto.categoria_id %>
-  </p>
-
-    <p>
-    <strong> Comuna</strong>
-    <%= @producto.proveedor_id %>
   </p>
 
   <p>
-    <strong> Telefono</strong>
+    <strong> Categortia </strong>
+    <%= @producto.categoria.nombre.to_s %>
+  </p>
+
+  <p>
+    <strong> Stock Del Producto</strong>
+    <%= @producto.stock %>
+  </p>
+  
+    <p>
+    <strong> Marca</strong>
+    <%= @producto.marca.nombre.to_s %>
+  </p>
+
+    <p>
+    <strong> Proveedor </strong>
+    <%= @producto.proveedor.nombre.to_s%>
+  </p>
+
+  <p>
+    <strong> Descripción</strong>
     <%= @producto.descripcion %>
   </p>
   
