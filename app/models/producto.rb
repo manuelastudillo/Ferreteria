@@ -1,5 +1,5 @@
 class Producto < ActiveRecord::Base
-	has_many :proveedor
-    has_many :categoria
-    has_many :marca
+	  belongs_to :proveedor
+    belongs_to :categoria
+    belongs_to :marca
 end

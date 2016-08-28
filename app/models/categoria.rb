@@ -18,5 +18,5 @@ class Categoria < ActiveRecord::Base
 #Validaciones de descripción
 #validates :descripcion, :presence => {:message => "Usted debe ingresar una descripción"}, length: {minimum: 2, maximum: 4000, :message => "La descripción debe tener entre 2 y 4000 caracteres"}
 #Validaciones de prioridad
-#validates :prioridad, :presence => {:message => "Usted debe ingresar una prioridad"}, :numericality => {:only_integer => true, :message => "La prioridad debe ser numérica"}  
+#validates :prioridad, :presence => {:message => "Usted debe ingresar una prioridad"}, :numericality => {:only_integer => true, :message => "La prioridad debe ser numérica"}
 end
