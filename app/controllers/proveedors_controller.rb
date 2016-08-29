@@ -14,9 +14,11 @@ class ProveedorsController < ApplicationController
     @proveedor = Proveedor.new(proveedor_params)
     respond_to do |format|
       if @proveedor.save
-        format.html{redirect_to @proveedor, notice:  'proveedor Guardado Con Exito'}
+
+        format.html{redirect_to proveedor_url@proveedor, notice:  'proveedor Guardado Con Exito'}
+
       else
-        format.html{render :new}
+        format.html{render :nuevo}
       end
     end
   end

@@ -7,11 +7,10 @@ class Categoria < ActiveRecord::Base
  #validates :nom_cat , presence: true , confirmation: true
  #validates :nom_cat, presence: { message: " es requerido"}
  # validates :abre_cat , presence: true , confirmation: true
- validates :nombre, :presence => {:message => "Usted debe ingresar un título"}, length: {minimum: 2, maximum: 50, :message => "El título debe tener entre 2 y 50 caracteres"}
+ validates :nombre, length: {minimum: 2, maximum: 50, :message => " debe tener entre 2 y 50 caracteres"}
 
- validates :abreviacion, presence: { message: " es requerido"}
+ validates :abreviacion,  length: {minimum: 2, maximum: 50, :message => " debe tener entre 2 y 50 caracteres"}
  # validates :desc_cat , presence: true , confirmation: true
- validates :descripcion, presence: { message: " es requerido"}
 #validates :abre_cat, presence: true => {message: => "Usted debe ingresar nombre de la Categoria"}
 #validates :nom_cat, :presence => {message: => "Usted debe ingresar nombre de la Categoria"}, length: {minimum: 2, maximum: 50, :message => "El nombre debe tener entre 2 y 50 caracteres"}
 
