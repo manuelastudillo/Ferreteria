@@ -1,11 +1,11 @@
 <section class="content invoice">
   <div class="row">
     <div class="col-md-10">
-      <%= form_for(@producto, :html => { :role => "form" }) do |f| %>
+      <%= form_for @producto, url: productos_path, html: { method: :post } do |f| %>
         <% if @producto.errors.any? %>
           <div class="alert alert-danger alert-dismissable" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-            <h4><%= pluralize(@producto.errors.count, "error") %> prohibido guardar este producto:</h4>
+            <h4><%= pluralize(@producto.errors.count, "Errores") %> prohibido guardar este producto:</h4>
 
             <ul>
             <% @producto.errors.full_messages.each do |msg| %>
@@ -15,16 +15,18 @@
           </div>
         <% end %>
 
-      <div class="form-group" style="margin-top: 10px;">
-        <%= f.label :nombre,"Nombre", :class =>"col-sm-2", :class =>"control-label" %>
-        <div class="col-sm-10">
-        <%= f.text_field :nombre, placeholder: "Nombre Del Producto", :class => "form-control" %>
+    <div class="row" style="margin-top: 30px;">
+      <div class="form-group" >
+        <%= f.label :nombre,"Nombre", :class =>"col-md-2" %>
+        <div class="col-md-10"  style="margin-bottom: 10px;">
+        <%= f.text_field :nombre, placeholder: "Ingrese Nombre Del Producto", :class =>"col-md-8" %>
      </div> 
      </div> 
+
       <div class="form-group">
-        <%= f.label :abreviacion ,"Nombre Abreviado", :class =>"col-sm-2", :class =>"control-label" %>
-        <div class="col-sm-10">
-        <%= f.text_field :abreviacion,  placeholder: "Nombre Abreviado",:class => "form-control" %>
+        <%= f.label :abreviacion ,"Abreviacion", :class =>"col-md-2" %>
+        <div class="col-md-10" style="margin-bottom: 10px;">
+        <%= f.text_field :abreviacion,  placeholder: "Ingrese Nombre Abreviado", :class =>"col-md-8" %>
       </div>
       </div>
  
@@ -35,88 +37,94 @@
       </div>
        -->      
       <div class="form-group">
-        <%= f.label :comision,"Comisión ", :class => "control-label"%>
-        <div class="col-sm-10">
-        <%= f.text_field :comision, placeholder:"Comision Del Producto", :class => "form-control" %>
-      </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :stock,"Stock ", :class => "control-label" %>
-        <div class="col-sm-10">
-        <%= f.text_field :stock , placeholder:"Stock Del Producto",:class => "form-control"%>
-      </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :stockminimo,"Stock Minimo",:class => "control-label"%>
-                <div class="col-sm-10">
-        <%= f.text_field :stockminimo ,placeholder:"Stock Minimo Del Producto", :class => "form-control"%>
-      </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :precio_compra, "Precio de compra",:class => "control-label" %>
-                <div class="col-sm-10">
-      <%= f.text_field :precio_compra , placeholder:"Precio De Compra del producto",:class => "form-control"%>
+        <%= f.label :comision,"Comisión ", :class =>"col-md-2"%>
+        <div class="col-md-10" style="margin-bottom: 10px;">
+        <%= f.text_field :comision, placeholder:"Ingrese Comision Del Producto", :class =>"col-md-8" %>
       </div>
       </div>
 
       <div class="form-group">
-        <%= f.label :precio_venta,"Precio De Venta",:class => "control-label" %>
-            <div class="col-sm-10">
-        <%= f.text_field :precio_venta ,placeholder:"Precio De Venta Del Producto", :class => "form-control"%>
+        <%= f.label :stock,"Stock ", :class =>"col-md-2" %>
+        <div class="col-md-10" style="margin-bottom: 10px;">
+        <%= f.text_field :stock , placeholder:"Ingrese Stock Del Producto", :class =>"col-md-8"%>
+      </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :stockminimo,"Stock Minimo", :class =>"col-md-2"%>
+                <div class="col-md-10" style="margin-bottom: 10px;">
+        <%= f.text_field :stockminimo ,placeholder:"Ingrese Stock Minimo Del Producto", :class =>"col-md-8"%>
       </div>
       </div>
 
      <div class="field">
-        <%= f.label :categoria %>
-        <div class="col-sm-10">
+        <%= f.label :Marca,"Marca ", :class => "col-md-2" %>
+        <div class="col-md-10"  style="margin-bottom: 10px;">
+        <%= f.select('marca_id', Marca.all.collect{|m| [m.nombre, m.id]}, class: 'chosen-select')%>
+      </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :precio_compra, "Precio compra", :class =>"col-md-2" %>
+                <div class="col-md-10" style="margin-bottom: 10px;">
+      <%= f.text_field :precio_compra , placeholder:"Ingrese Precio De Compra del producto", :class =>"col-md-8"%>
+      </div>
+      </div>
+
+    <div class="field">
+        <%= f.label :Proveedor,"Proveedor ", :class => "col-md-2" %>
+        <div class="col-md-10" style="margin-bottom: 10px;">
+        <%= f.select('proveedor_id', Proveedor.all.collect{|p| [p.nombre, p.id]}, class: 'chosen-select')%>
+      </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :precio_venta,"Precio De Venta", :class =>"col-md-2" %>
+            <div class="col-md-10" style="margin-bottom: 10px;">
+        <%= f.text_field :precio_venta ,placeholder:"Ingrese Precio Venta Del Producto", :class =>"col-md-8"%>
+      </div>
+      </div>
+
+     <div class="field">
+        <%= f.label :categoria,"Categoria ", :class => "col-md-2" %>
+        <div class="col-md-10"  style="margin-bottom: 10px;">
         <%= f.select('categoria_id', Categoria.all.collect{|c| [c.nombre, c.id]}, class: 'chosen-select')%>
       </div>
       </div>
 
       <!--<div class="form-group">
         <%= f.label :descuento, "Descuento", :class => "control-label" %>
-        <div class="col-sm-10">
+        <div class="col-md-10">
         <%= f.text_field :descuento ,placeholder:"Descuento que se le ase", :class => "form-control"%>
       </div>
       </div>
         -->
+ 
+
+      <div class="form-group ">
+        <%= f.label :stock, "Stock ", :class => "col-md-2"%>
+        <div class="col-md-10"  style="margin-bottom: 10px;">
+        <%= f.text_field :stock ,placeholder:"Stock Del Producto", :class =>"col-md-8"%>
+      </div>
+      </div>
 
 
-      <div class="form-group espacio">
-        <%= f.label :stock, "Stock Del Producto",:class => "control-label"  %>
-        <div class="col-sm-10">
-        <%= f.text_field :stock ,placeholder:"Stock Del Producto", :class => "form-control"%>
+     <div class="form-group">
+        <%= f.label :descripcion, "Descripción", :class => "col-md-2"  %>
+        <div class="col-sm-10" style="margin-bottom: 10px;">
+        <%= f.text_area :descripcion ,placeholder:"Descripción Del proveedor", :class =>"col-md-8"%>
       </div>
       </div>
 
-     <div class="field">
-        <%= f.label :Marca %>
-        <div class="col-sm-10">
-        <%= f.select('marca_id', Marca.all.collect{|m| [m.nombre, m.id]}, class: 'chosen-select')%>
-      </div>
-      </div>
-   
-
-        <div class="field">
-        <%= f.label :Proveedor %>
-        <div class="col-sm-10">
-        <%= f.select('proveedor_id', Proveedor.all.collect{|p| [p.nombre, p.id]}, class: 'chosen-select')%>
-      </div>
-      </div>
 
        
 
-       <div class="form-group espacio">
-        <%= f.label :descripcion ,"Descrición", :class =>"col-sm-2" , :class =>"control-label" %>
-        <div class="col-sm-10">
-    
-        <%= f.text_area :descripcion,  placeholder: "Ingrese Descripción Del Producto",:class => "form-control" %>
-      </div>
-      </div>
+
 
       <div class="form-group botones2">
         <%= f.submit :class => "btn btn-primary" %>
       </div>
+    </div>
     <% end %>
     </div>
   </div>

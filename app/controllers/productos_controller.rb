@@ -14,9 +14,9 @@ class ProductosController < ApplicationController
     @producto = Producto.new(producto_params)
     respond_to do |format|
       if @producto.save
-        format.html{redirect_to @producto, notice:  'producto Guardado Con Exito'}
+           format.html{redirect_to producto_url(@producto), notice:  'producto Guardado Con Exito'}
       else
-        format.html{render :new}
+        format.html{render :nuevo}
       end
     end
   end
