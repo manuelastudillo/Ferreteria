@@ -6,13 +6,10 @@ Rails.application.routes.draw do
 
 
   get 'ventas/index'
-
   get 'ventas/crear'
-
   get 'ventas/editar'
 
   devise_for :usuarios
-
   get 'clientes/', to: 'clientes#index', as: 'clientes'
   get 'clientes/nuevo', as: 'nuevo_cliente'
   post 'clientes/', to: 'clientes#crear'
@@ -65,6 +62,12 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
+
+
+  get 'boletas/', to: 'boletas#index', as: 'boletas'
+  get 'boletas/:id/editar', to: 'boletas#editar', as: 'editar_boleta'
+  get 'boletas/nuevo', as: 'nuevo_boleta'
+  post 'boletas/', to: 'boletas#crear'
 
 
 
