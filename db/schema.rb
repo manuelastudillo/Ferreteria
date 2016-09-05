@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160828010526) do
+ActiveRecord::Schema.define(version: 20160905180956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20160828010526) do
     t.string   "descripcion"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "clientes", force: :cascade do |t|
+    t.text     "nombre"
+    t.integer  "comuna_id"
+    t.text     "rut"
+    t.text     "domicilio"
+    t.integer  "telefono1"
+    t.text     "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comunas", force: :cascade do |t|
@@ -117,11 +128,24 @@ ActiveRecord::Schema.define(version: 20160828010526) do
     t.integer  "comuna_id"
     t.datetime "fechaingreso"
     t.integer  "sueldo"
+    t.text     "rut"
   end
 
   add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
   add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
 
+  create_table "ventas", force: :cascade do |t|
+    t.integer  "numero"
+    t.integer  "cliente_id"
+    t.integer  "usuario_id"
+    t.integer  "producto_id"
+    t.datetime "fecha"
+    t.integer  "monto"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_foreign_key "clientes", "comunas"
   add_foreign_key "comunas", "provincias"
   add_foreign_key "productos", "categorias"
   add_foreign_key "productos", "marcas"
@@ -130,4 +154,7 @@ ActiveRecord::Schema.define(version: 20160828010526) do
   add_foreign_key "provincias", "regiones", column: "region_id"
   add_foreign_key "usuarios", "comunas"
   add_foreign_key "usuarios", "roles", column: "rol_id"
+  add_foreign_key "ventas", "clientes"
+  add_foreign_key "ventas", "productos"
+  add_foreign_key "ventas", "usuarios"
 end

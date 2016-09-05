@@ -32,11 +32,13 @@
       <i class="fa fa-tag"></i> <span>Categorias</span>
     <% end %>
     <%= nav_link marcas_path do %>
-      <i class="fa fa-plus-square"></i> <span>Marca</span>
+      <i class="fa fa-plus-square"></i> <span>Marcas</span>
     <% end %>
-      <%= nav_link marcas_path do %>
-      <i class="fa fa-plus-square"></i> <span>Marca</span>
+        <%= nav_link clientes_path do %>
+     <i class="fa fa-user" aria-hidden="true"></i>
+ <span>Clientes</span>
     <% end %>
+
     <%= treeview_link 'Lots of links here' do %>
       <%= nav_link "#" do %>
         <i class="fa fa-angle-double-right"></i>

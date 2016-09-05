@@ -3,8 +3,24 @@ Rails.application.routes.draw do
 
 
 
+
+
+  get 'ventas/index'
+
+  get 'ventas/crear'
+
+  get 'ventas/editar'
+
   devise_for :usuarios
 
+  get 'clientes/', to: 'clientes#index', as: 'clientes'
+  get 'clientes/nuevo', as: 'nuevo_cliente'
+  post 'clientes/', to: 'clientes#crear'
+  get 'clientes/:id/editar', to: 'clientes#editar', as: 'editar_cliente'
+  get 'clientes/:id', to: 'clientes#mostrar', as: 'cliente'
+  put 'clientes/:id',to: 'clientes#update'
+  patch 'clientes/:id' ,to: 'clientes#update'
+  delete 'clientes/:id', to: 'clientes#eliminar'
 
   get 'categorias/', to: 'categorias#index', as: 'categorias'
   get 'categorias/nuevo', as: 'nuevo_categoria'
