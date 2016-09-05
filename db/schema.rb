@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905180956) do
+ActiveRecord::Schema.define(version: 20160905190221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boletas", force: :cascade do |t|
+    t.datetime "fecha"
+    t.integer  "numero"
+    t.integer  "monto"
+    t.boolean  "factura"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categorias", force: :cascade do |t|
     t.text     "nombre"
@@ -135,14 +144,12 @@ ActiveRecord::Schema.define(version: 20160905180956) do
   add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
 
   create_table "ventas", force: :cascade do |t|
-    t.integer  "numero"
     t.integer  "cliente_id"
     t.integer  "usuario_id"
     t.integer  "producto_id"
-    t.datetime "fecha"
-    t.integer  "monto"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "boleta_id"
   end
 
   add_foreign_key "clientes", "comunas"
@@ -154,6 +161,7 @@ ActiveRecord::Schema.define(version: 20160905180956) do
   add_foreign_key "provincias", "regiones", column: "region_id"
   add_foreign_key "usuarios", "comunas"
   add_foreign_key "usuarios", "roles", column: "rol_id"
+  add_foreign_key "ventas", "boletas"
   add_foreign_key "ventas", "clientes"
   add_foreign_key "ventas", "productos"
   add_foreign_key "ventas", "usuarios"

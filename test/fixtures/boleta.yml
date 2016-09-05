@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2016-09-05 16:01:42
+  numero: 1
+  monto: 1
+  factura: false
+
+two:
+  fecha: 2016-09-05 16:01:42
+  numero: 1
+  monto: 1
+  factura: false
