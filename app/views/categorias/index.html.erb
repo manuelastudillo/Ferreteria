@@ -27,5 +27,6 @@
     <%end%>
     </tbody>
   </table>
+    <p><%= link_to "Imprimir Categorias" , categorias_path(@categorias, format: "pdf" ) %></p>
   <%= will_paginate @categorias, renderer: BootstrapPagination::Rails %>
 </section>

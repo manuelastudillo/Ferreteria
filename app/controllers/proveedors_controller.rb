@@ -4,6 +4,15 @@ class ProveedorsController < ApplicationController
 
   def index
     @proveedors = Proveedor.paginate(:page => params[:page], :per_page => 10)
+         respond_to do |format|
+     format.html
+     format.pdf do
+      pdf = ProveedorsPdf.new(@proveedors)
+     send_data pdf.render, :filename =>'proveedores.pdf',  
+                           :type =>'aplication/pdf',
+                           :disposition => 'inline'
+                           end  
+ end 
   end
 
   def nuevo

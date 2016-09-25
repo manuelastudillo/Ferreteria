@@ -4,7 +4,16 @@ class CategoriasController < ApplicationController
 
   def index
     @categorias = Categoria.paginate(:page => params[:page], :per_page => 10)
-  end
+      respond_to do |format|
+     format.html
+     format.pdf do
+      pdf = CategoriasPdf.new(@categorias)
+     send_data pdf.render, :filename =>'Categorias.pdf',  
+                           :type =>'aplication/pdf',
+                           :disposition => 'inline'
+end  
+end  
+end
 
   def nuevo
     @categoria = Categoria.new

@@ -4,7 +4,20 @@ class ClientesController < ApplicationController
 
   def index
     @clientes = Cliente.paginate(:page => params[:page], :per_page => 10)
+          respond_to do |format|
+     format.html
+     format.pdf do
+      pdf = ClientesPdf.new(@clientes)
+     send_data pdf.render, :filename =>'Clientes.pdf',  
+                           :type =>'aplication/pdf',
+                           :disposition => 'inline'
+end  
+end  
   end
+
+def inde
+  @usuarios = Usuario.all
+end
 
   def nuevo
     @cliente = Cliente.new
@@ -15,7 +28,7 @@ class ClientesController < ApplicationController
     respond_to do |format|
       if @cliente.save
 
-        format.html{redirect_to cliente_url@cliente, notice:  'cliente Guardado Con Exito'}
+        format.html{redirect_to cliente_url@cliente, notice:  'Cliente Guardado Con Exito'}
 
       else
         format.html{render :nuevo}

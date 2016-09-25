@@ -27,5 +27,6 @@
     <%end%>
     </tbody>
   </table>
+  <p><%= link_to "Imprimir Marca" , marcas_path(@marca, format: "pdf" ) %></p>
   <%= will_paginate @marcas, renderer: BootstrapPagination::Rails %>
 </section>

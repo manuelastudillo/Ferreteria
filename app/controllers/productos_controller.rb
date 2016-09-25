@@ -1,11 +1,19 @@
 class ProductosController < ApplicationController
   before_action :set_producto, only: [:mostrar, :editar, :update, :eliminar]
-
+  #before_action :authenricate_usarios, only: [:mostrar,:editar,:update,:eliminar]
 
   def index
     @productos = Producto.paginate(:page => params[:page], :per_page => 10)
-  end
-
+     respond_to do |format|
+     format.html
+     format.pdf do
+      pdf = ProductosPdf.new(@productos)
+     send_data pdf.render, :filename =>'productos.pdf',  
+                           :type =>'aplication/pdf',
+                           :disposition => 'inline'
+end  
+end  
+end
   def nuevo
     @producto = Producto.new
   end

@@ -4,7 +4,16 @@ before_action :set_marca, only: [:mostrar, :editar, :update, :eliminar]
 
   def index
     @marcas = Marca.paginate(:page => params[:page], :per_page => 10)
-  end
+      respond_to do |format|
+     format.html
+     format.pdf do
+      pdf = MarcasPdf.new(@marcas)
+     send_data pdf.render, :filename =>'Marcas.pdf',  
+                           :type =>'aplication/pdf',
+                           :disposition => 'inline'
+end  
+end  
+end
 
   def nuevo
     @marca = Marca.new
