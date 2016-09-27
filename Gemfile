@@ -31,6 +31,7 @@ gem 'will_paginate-bootstrap'
 gem 'devise'
 gem 'rut_validator'
 
+ gem 'nested_form'
 
 gem 'prawn'
 gem 'prawn-table','~> 0.1.0'

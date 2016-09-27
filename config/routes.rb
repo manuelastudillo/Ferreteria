@@ -9,12 +9,11 @@ Rails.application.routes.draw do
   get 'ventas/crear'
   get 'ventas/editar'
 
-  devise_for :usuarios
+devise_for :usuarios, :controllers => { registrations: 'registrations' }
 
   get 'usuarios/', to: 'usuarios#index', as: 'usuarios'
   get 'usuarios/:id', to: 'usuarios#mostrar', as: 'usuario'
 
-  get 'usuariolista/', to: 'clientes#inde'
 
   get 'clientes/', to: 'clientes#index', as: 'clientes'
   get 'clientes/nuevo', as: 'nuevo_cliente'

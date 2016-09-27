@@ -19,7 +19,7 @@ class DeviseToUsuarios < ActiveRecord::Migration
       t.inet     :current_sign_in_ip
       t.inet     :last_sign_in_ip
       t.string   :nombre
-      t.string     :calle
+      t.string   :calle
       t.integer  :telefono
       t.integer  :telefono1
       t.integer  :rol_id
